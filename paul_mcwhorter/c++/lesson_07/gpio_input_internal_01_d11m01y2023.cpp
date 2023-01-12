@@ -1,19 +1,27 @@
-// gpio_input_pullup_08.cpp
-// d31m12y2022
+// gpio_input_internal_01...cpp
+// d11m01y2023
 //
-// NOTE: This program controls another circuit with an LED
-// by reading from the GPIO input of the previous circuit
-// using a pull up resistor and switch.
-// The python version of this code is courtesy of Paul McWhorter
-// (2022), "Raspberry Pi LESSON 6: Understanding GPIO Inputs,
-// Pull Up and Pull Down", YouTube.
-// which I then tried to translate into C++ with the help of
-// Tavasalkar, D. (2019), "Hands-On Robotics Programming with C++"
+// NOTE: This program is a variant of the previous one in
+// lesson 06. However, unlike the previous, it uses an =
+// internal (built-in) pull up resistor to control
+// the other circuit with an LED by reading from the GPIO
+// input of the previous circuit.
+// 
+// Again, the python version of this code is courtesy of
+// Paul McWhorter (2022), "Raspberry Pi LESSON 7: GPIO
+// Inputs From Button Switch", YouTube.
+// which I then tried to translate into C++ with help from
+// (1.) Tavasalkar, D. (2019), "Hands-On Robotics
+// Programming with C++"
+// (2.) WiringPi Library online documentation (See link:
+//  http://wiringpi.com/reference/core-functions/) and
+// function 'void pullUpDnControl(int pin, int pud);'
 //
 // Difference(s):
-// (1.) Further modification of CGPIOSetup class
+// (1.) Implemented core function
+// void pullUpDnControl(int pin, int pud)
 //
-// (2.) Included user-defined default values for CGPIOSetup constructor
+// (2.)
 //
 //
 #include <iostream>
@@ -168,6 +176,9 @@ int main(void)
 
     pinMode(pin1,INPUT);    // Set GPIO pin mode
     pinMode(pin2,OUTPUT);
+
+    pullUpDnControl(pin1, PUD_UP);    // Set GPIO pin to pull-up resistor
+                                        // (See wiringpi.com for more details)
 
     USHORT readValue = 1;    // Initialize variable to store
                                          // measured value
