@@ -15,11 +15,10 @@
 // Programming with C++"
 // (2.) WiringPi Library online documentation (See link:
 //  http://wiringpi.com/reference/core-functions/) and
-// function 'void pullUpDnControl(int pin, int pud);'
+// function 'void pullUpDnControl(int pin, Yint pud)';
 //
 // Difference(s):
-// (1.) Implemented core function
-// void pullUpDnControl(int pin, int pud)
+// (1.) Implemented core function 
 //
 // (2.)
 //
@@ -176,9 +175,6 @@ int main(void)
 
     pinMode(pin1,INPUT);    // Set GPIO pin mode
     pinMode(pin2,OUTPUT);
-
-    pullUpDnControl(pin1, PUD_UP);    // Set GPIO pin to pull-up resistor
-                                        // (See wiringpi.com for more details)
 
     USHORT readValue = 1;    // Initialize variable to store
                                          // measured value
