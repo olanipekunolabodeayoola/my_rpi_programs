@@ -1,7 +1,7 @@
 # assg_ls_07_01_d15m01y2023.py
 # GPIOInput Internal (Built-in) pullup
-# 
-# 
+#
+#
 # Import time module for delay:
 from time import sleep
 
